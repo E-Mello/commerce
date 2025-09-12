@@ -2,29 +2,183 @@
   "products": [
     {
       "id": "prod_1",
-      "handle": "classic-tee",
-      "title": "Camiseta Clássica",
-      "featuredImage": { "url": "/images/classic-tee.png" },
-      "price": { "amount": "75.00", "currencyCode": "BRL" },
+      "handle": "camiseta-classica-preta",
+      "availableForSale": true,
+      "title": "Camiseta Clássica Preta",
+      "description": "Uma camiseta preta essencial, feita de 100% algodão premium. Confortável, durável e versátil para qualquer ocasião.",
+      "descriptionHtml": "<p>Uma camiseta preta essencial, feita de <strong>100% algodão premium</strong>. Confortável, durável e versátil para qualquer ocasião.</p>",
+      "collections": ["destaques", "camisetas"],
+      "tags": ["básico", "algodão", "verão"],
+      "seo": {
+        "title": "Camiseta Clássica Preta | Sua Loja",
+        "description": "Compre a melhor camiseta preta básica de algodão."
+      },
+      "featuredImage": {
+        "url": "/images/camiseta-preta-frente.png",
+        "altText": "Frente da camiseta preta",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "89.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "89.90", "currencyCode": "BRL" }
+      },
+      "options": [
+        {
+          "id": "option_size",
+          "name": "Tamanho",
+          "values": ["P", "M", "G", "GG"]
+        }
+      ],
       "variants": [
         {
-          "id": "var_1_s",
+          "id": "var_1_p",
           "title": "P",
-          "price": { "amount": "75.00", "currencyCode": "BRL" },
-          "selectedOptions": [{ "name": "Tamanho", "value": "P" }]
+          "availableForSale": true,
+          "selectedOptions": [{ "name": "Tamanho", "value": "P" }],
+          "price": { "amount": "89.90", "currencyCode": "BRL" }
         },
         {
           "id": "var_1_m",
           "title": "M",
-          "price": { "amount": "75.00", "currencyCode": "BRL" },
-          "selectedOptions": [{ "name": "Tamanho", "value": "M" }]
+          "availableForSale": true,
+          "selectedOptions": [{ "name": "Tamanho", "value": "M" }],
+          "price": { "amount": "89.90", "currencyCode": "BRL" }
+        },
+        {
+          "id": "var_1_g",
+          "title": "G",
+          "availableForSale": false,
+          "selectedOptions": [{ "name": "Tamanho", "value": "G" }],
+          "price": { "amount": "89.90", "currencyCode": "BRL" }
         }
-      ]
+      ],
+      "images": [
+        {
+          "url": "/images/camiseta-preta-frente.png",
+          "altText": "Frente da camiseta preta",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "url": "/images/camiseta-preta-costas.png",
+          "altText": "Costas da camiseta preta",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "updatedAt": "2025-09-12T18:00:00Z"
+    },
+    {
+      "id": "prod_2",
+      "handle": "moletom-com-capuz-cinza",
+      "availableForSale": true,
+      "title": "Moletom com Capuz Cinza",
+      "description": "Moletom cinza mescla com capuz e bolso canguru. Perfeito para dias mais frios, combinando estilo e conforto.",
+      "descriptionHtml": "<p>Moletom cinza mescla com capuz e bolso canguru. Perfeito para dias mais frios, combinando <strong>estilo e conforto</strong>.</p>",
+      "collections": ["destaques", "casacos"],
+      "tags": ["inverno", "conforto", "moletom"],
+      "seo": {
+        "title": "Moletom com Capuz Cinza | Sua Loja",
+        "description": "O melhor moletom cinza com capuz para o inverno."
+      },
+      "featuredImage": {
+        "url": "/images/moletom-cinza-frente.png",
+        "altText": "Frente do moletom cinza",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "199.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "199.90", "currencyCode": "BRL" }
+      },
+      "options": [
+        {
+          "id": "option_size",
+          "name": "Tamanho",
+          "values": ["P", "M", "G"]
+        }
+      ],
+      "variants": [
+        {
+          "id": "var_2_p",
+          "title": "P",
+          "availableForSale": true,
+          "selectedOptions": [{ "name": "Tamanho", "value": "P" }],
+          "price": { "amount": "199.90", "currencyCode": "BRL" }
+        },
+        {
+          "id": "var_2_m",
+          "title": "M",
+          "availableForSale": true,
+          "selectedOptions": [{ "name": "Tamanho", "value": "M" }],
+          "price": { "amount": "199.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-10T11:00:00Z"
     }
   ],
+  "collections": [
+    {
+      "handle": "destaques",
+      "title": "Produtos em Destaque",
+      "description": "Nossa seleção especial dos produtos mais populares da loja.",
+      "seo": {
+        "title": "Produtos em Destaque",
+        "description": "Veja os produtos mais vendidos e as novidades."
+      },
+      "updatedAt": "2025-09-12T10:00:00Z"
+    },
+    {
+      "handle": "camisetas",
+      "title": "Camisetas",
+      "description": "Todas as nossas camisetas de alta qualidade.",
+      "seo": {
+        "title": "Camisetas",
+        "description": "Encontre camisetas de algodão com diversas estampas."
+      },
+      "updatedAt": "2025-09-11T15:30:00Z"
+    }
+  ],
+  "pages": [
+    {
+      "id": "page_1",
+      "title": "Sobre Nós",
+      "handle": "sobre-nos",
+      "body": "<h1>Nossa História</h1><p>Somos uma loja dedicada a oferecer produtos de alta qualidade com design moderno e atemporal...</p>",
+      "bodySummary": "Somos uma loja dedicada a oferecer produtos de alta qualidade...",
+      "seo": {
+        "title": "Sobre Nós | Sua Loja",
+        "description": "Conheça mais sobre a nossa história e nossa missão."
+      },
+      "createdAt": "2025-01-15T09:00:00Z",
+      "updatedAt": "2025-08-20T14:00:00Z"
+    }
+  ],
+  "menu": [
+    { "title": "Todos os Produtos", "path": "/search" },
+    { "title": "Camisetas", "path": "/search/camisetas" },
+    { "title": "Sobre Nós", "path": "/about" }
+  ],
   "cart": {
-    "id": "cart_1",
-    "lines": [],
-    "totalQuantity": 0
+    "id": "cart_abc123",
+    "checkoutUrl": "/checkout",
+    "cost": {
+      "subtotalAmount": { "amount": "289.80", "currencyCode": "BRL" },
+      "totalAmount": { "amount": "289.80", "currencyCode": "BRL" },
+      "totalTaxAmount": { "amount": "0.00", "currencyCode": "BRL" }
+    },
+    "lines": [
+      {
+        "merchandiseId": "var_1_m",
+        "quantity": 1
+      },
+      {
+        "merchandiseId": "var_2_p",
+        "quantity": 1
+      }
+    ],
+    "totalQuantity": 2
   }
 }

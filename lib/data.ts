@@ -1,6 +1,6 @@
 // Em lib/data.ts
 import { revalidateTag } from "next/cache";
-import { Cart, CartItem, Product } from "./types";
+import { Cart, CartItem, Collection, Product } from "./types";
 
 const API_URL = "http://localhost:4000";
 
@@ -65,6 +65,7 @@ export async function getCart(): Promise<Cart | undefined> {
 
   return {
     id: rawCart.id,
+    checkoutUrl: rawCart.checkoutUrl ?? "", // Provide checkoutUrl, fallback to empty string if missing
     totalQuantity,
     lines: hydratedLines,
     cost: {
@@ -89,4 +90,88 @@ async function updateCartOnServer(
   revalidateTag("cart"); // Invalida o cache do carrinho
 }
 
-// ... (outras funções como getProducts, etc, podem ser adicionadas aqui)
+export async function getMenu(
+  handle: string
+): Promise<{ title: string; path: string }[]> {
+  // O argumento 'handle' é ignorado, mas mantemos para a assinatura da função ser a mesma.
+  const res = await fetch("http://localhost:4000/menu", {
+    next: {
+      tags: ["menu"],
+    },
+  });
+
+  return res.json();
+}
+
+export async function getCollection(
+  handle: string
+): Promise<Collection | undefined> {
+  const res = await fetch(`${API_URL}/collections`, {
+    next: {
+      tags: ["collections"],
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch collections.");
+  }
+
+  const collections: Collection[] = await res.json();
+
+  // Encontra a coleção específica pelo seu "handle" (identificador)
+  return collections.find((collection) => collection.handle === handle);
+}
+
+// =======================================================================
+// FUNÇÃO ATUALIZADA
+// =======================================================================
+export async function getCollectionProducts({
+  collection,
+  sortKey,
+  reverse,
+}: {
+  collection: string;
+  sortKey?: string;
+  reverse?: boolean;
+}): Promise<Product[]> {
+  const res = await fetch(`${API_URL}/products`, {
+    next: {
+      tags: ["products", collection],
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch products.");
+  }
+
+  const products: Product[] = await res.json();
+
+  // 1. Filtra os produtos para a coleção correta
+  const filteredProducts = products.filter((product) =>
+    product.collections?.includes(collection)
+  );
+
+  // 2. Aplica a ordenação se `sortKey` for fornecido
+  if (sortKey) {
+    filteredProducts.sort((a, b) => {
+      const aValue =
+        sortKey === "PRICE"
+          ? Number(a.priceRange.minVariantPrice.amount)
+          : new Date(a.updatedAt).getTime();
+      const bValue =
+        sortKey === "PRICE"
+          ? Number(b.priceRange.minVariantPrice.amount)
+          : new Date(b.updatedAt).getTime();
+
+      if (aValue < bValue) return -1;
+      if (aValue > bValue) return 1;
+      return 0;
+    });
+
+    if (reverse) {
+      filteredProducts.reverse();
+    }
+  }
+
+  return filteredProducts;
+}
