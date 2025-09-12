@@ -1,82 +1,11 @@
 // Em lib/data.ts
 import { revalidateTag } from "next/cache";
 import { NextRequest } from "next/dist/server/web/spec-extension/request";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { Cart, CartItem, Collection, Page, Product } from "./types";
 
 const API_URL = "http://localhost:4000";
-
-// Busca o carrinho e "hidrata" com os detalhes dos produtos
-export async function getCart(): Promise<Cart | undefined> {
-  const [cartRes, productsRes] = await Promise.all([
-    fetch(`${API_URL}/cart`, { cache: "no-store" }), // O carrinho não deve ser cacheado
-    fetch(`${API_URL}/products`, { next: { tags: ["products"] } }), // Produtos podem ser cacheados
-  ]);
-
-  const rawCart = await cartRes.json();
-  const products: Product[] = await productsRes.json();
-
-  if (!rawCart || !rawCart.lines) return undefined;
-
-  // O carrinho do db.json só tem IDs, precisamos adicionar os detalhes completos do produto
-  const hydratedLines = rawCart.lines
-    .map((line: { merchandiseId: string; quantity: number }) => {
-      const variant = products
-        .flatMap((p) => p.variants)
-        .find((v) => v.id === line.merchandiseId);
-
-      const product = products.find((p) =>
-        p.variants.some((v) => v.id === line.merchandiseId)
-      );
-
-      if (!variant || !product) return null;
-
-      return {
-        quantity: line.quantity,
-        cost: {
-          totalAmount: {
-            amount: (Number(variant.price.amount) * line.quantity).toString(),
-            currencyCode: variant.price.currencyCode,
-          },
-        },
-        merchandise: {
-          id: variant.id,
-          title: variant.title,
-          selectedOptions: variant.selectedOptions,
-          product: {
-            id: product.id,
-            handle: product.handle,
-            title: product.title,
-            featuredImage: product.featuredImage,
-          },
-        },
-      };
-    })
-    .filter(Boolean) as CartItem[];
-
-  // Recalcula totais com base nos dados hidratados
-  const totalQuantity = hydratedLines.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
-  const totalAmount = hydratedLines.reduce(
-    (sum, item) => sum + Number(item.cost.totalAmount.amount),
-    0
-  );
-  const currencyCode = hydratedLines[0]?.cost.totalAmount.currencyCode ?? "BRL";
-
-  return {
-    id: rawCart.id,
-    checkoutUrl: rawCart.checkoutUrl ?? "", // Provide checkoutUrl, fallback to empty string if missing
-    totalQuantity,
-    lines: hydratedLines,
-    cost: {
-      totalAmount: { amount: totalAmount.toString(), currencyCode },
-      subtotalAmount: { amount: totalAmount.toString(), currencyCode },
-      totalTaxAmount: { amount: "0", currencyCode },
-    },
-  };
-}
 
 // Função genérica para atualizar o carrinho no backend
 async function updateCartOnServer(
@@ -272,4 +201,222 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
 
   // 5. Retorna uma resposta de sucesso
   return NextResponse.json({ revalidated: true, tag: tag, now: Date.now() });
+}
+
+export async function getProduct(handle: string): Promise<Product | undefined> {
+  const res = await fetch(`${API_URL}/products`, {
+    next: { tags: ["products"] },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch products.");
+  }
+
+  const products: Product[] = await res.json();
+
+  // Encontra o produto específico pelo seu "handle"
+  return products.find((product) => product.handle === handle);
+}
+
+export async function getProductRecommendations(
+  productId: string
+): Promise<Product[]> {
+  const res = await fetch(`${API_URL}/products`, {
+    next: { tags: ["products"] },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch products.");
+  }
+
+  const products: Product[] = await res.json();
+
+  // 1. Encontra o produto atual para saber suas coleções.
+  const currentProduct = products.find((product) => product.id === productId);
+  if (!currentProduct || !currentProduct.collections?.length) {
+    return [];
+  }
+
+  // 2. Pega a primeira coleção do produto atual.
+  const primaryCollection = currentProduct.collections[0];
+
+  // 3. Adicione esta verificação para garantir que a coleção existe
+  if (!primaryCollection) {
+    return [];
+  }
+
+  // 4. Filtra para encontrar outros produtos na mesma coleção, excluindo o atual.
+  const recommendedProducts = products.filter(
+    (product) =>
+      product.id !== productId &&
+      product.collections?.includes(primaryCollection)
+  );
+
+  // 5. Retorna os 4 primeiros encontrados.
+  return recommendedProducts.slice(0, 4);
+}
+
+type RawCartLine = { merchandiseId: string; quantity: number };
+
+export async function getCart(): Promise<Cart | undefined> {
+  const cookieStore = await cookies();
+  const cartId = cookieStore.get("cartId")?.value;
+  if (!cartId) return undefined;
+
+  const [cartRes, productsRes] = await Promise.all([
+    fetch(`${API_URL}/cart`, { cache: "no-store" }),
+    fetch(`${API_URL}/products`, { next: { tags: ["products"] } }),
+  ]);
+
+  const rawCart = await cartRes.json();
+  const products: Product[] = await productsRes.json();
+
+  if (!rawCart || !rawCart.lines) return undefined;
+
+  const hydratedLines = rawCart.lines
+    .map((line: RawCartLine): CartItem | null => {
+      const variant = products
+        .flatMap((p) => p.variants)
+        .find((v) => v.id === line.merchandiseId);
+
+      const product = products.find((p) =>
+        p.variants.some((v) => v.id === line.merchandiseId)
+      );
+
+      if (!variant || !product) return null;
+
+      return {
+        id: variant.id,
+        quantity: line.quantity,
+        cost: {
+          totalAmount: {
+            amount: (Number(variant.price.amount) * line.quantity).toString(),
+            currencyCode: variant.price.currencyCode,
+          },
+        },
+        merchandise: {
+          id: variant.id,
+          title: variant.title,
+          selectedOptions: variant.selectedOptions,
+          // =======================================================================
+          // CORREÇÃO 2: Passamos o objeto 'product' inteiro.
+          // O tipo `Omit` em lib/types.ts garante que só as propriedades
+          // corretas fiquem disponíveis, sem precisar criar um objeto manual.
+          // =======================================================================
+          product: product,
+        },
+      };
+    })
+    .filter((line: CartItem | null): line is CartItem => line !== null);
+
+  // CORREÇÃO 3: Tipamos os parâmetros do `reduce` para resolver o erro 'any'.
+  const totalQuantity = hydratedLines.reduce(
+    (sum: number, item: CartItem) => sum + item.quantity,
+    0
+  );
+  const totalAmount = hydratedLines.reduce(
+    (sum: number, item: CartItem) => sum + Number(item.cost.totalAmount.amount),
+    0
+  );
+  const currencyCode = hydratedLines[0]?.cost.totalAmount.currencyCode ?? "BRL";
+
+  return {
+    ...rawCart,
+    lines: hydratedLines,
+    totalQuantity,
+    cost: {
+      totalAmount: { amount: totalAmount.toString(), currencyCode },
+      subtotalAmount: { amount: totalAmount.toString(), currencyCode },
+      totalTaxAmount: { amount: "0", currencyCode },
+    },
+  };
+}
+
+export async function createCart(): Promise<Cart> {
+  const res = await fetch(`${API_URL}/cart`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      lines: [],
+      totalQuantity: 0,
+    }),
+  });
+  const newCart = await res.json();
+  return {
+    ...newCart,
+    lines: [],
+    totalQuantity: 0,
+    cost: {
+      subtotalAmount: { amount: "0", currencyCode: "BRL" },
+      totalAmount: { amount: "0", currencyCode: "BRL" },
+      totalTaxAmount: { amount: "0", currencyCode: "BRL" },
+    },
+  };
+}
+
+export async function addToCart(lines: RawCartLine[]): Promise<Cart> {
+  const cartRes = await fetch(`${API_URL}/cart`, { cache: "no-store" });
+  const currentCart = await cartRes.json();
+  const currentLines: RawCartLine[] = currentCart.lines || [];
+
+  for (const lineToAdd of lines) {
+    const existingLine = currentLines.find(
+      (line) => line.merchandiseId === lineToAdd.merchandiseId
+    );
+    if (existingLine) {
+      existingLine.quantity += lineToAdd.quantity;
+    } else {
+      currentLines.push(lineToAdd);
+    }
+  }
+
+  await fetch(`${API_URL}/cart`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ lines: currentLines }),
+  });
+
+  return (await getCart()) as Cart;
+}
+
+export async function removeFromCart(lineIds: string[]): Promise<Cart> {
+  const cartRes = await fetch(`${API_URL}/cart`, { cache: "no-store" });
+  const currentCart = await cartRes.json();
+
+  const newLines = currentCart.lines.filter(
+    (line: RawCartLine) => !lineIds.includes(line.merchandiseId)
+  );
+
+  await fetch(`${API_URL}/cart`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ lines: newLines }),
+  });
+
+  return (await getCart()) as Cart;
+}
+
+export async function updateCart(
+  lines: { id: string; merchandiseId: string; quantity: number }[]
+): Promise<Cart> {
+  const cartRes = await fetch(`${API_URL}/cart`, { cache: "no-store" });
+  const currentCart = await cartRes.json();
+
+  const newLines = currentCart.lines.map((line: RawCartLine) => {
+    const lineToUpdate = lines.find(
+      (l) => l.merchandiseId === line.merchandiseId
+    );
+    if (lineToUpdate) {
+      return { ...line, quantity: lineToUpdate.quantity };
+    }
+    return line;
+  });
+
+  await fetch(`${API_URL}/cart`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ lines: newLines }),
+  });
+
+  return (await getCart()) as Cart;
 }

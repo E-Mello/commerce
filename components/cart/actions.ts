@@ -1,3 +1,5 @@
+// Path: components/cart/actions.ts
+
 'use server';
 
 import { TAGS } from 'lib/constants';
@@ -7,7 +9,7 @@ import {
   getCart,
   removeFromCart,
   updateCart
-} from 'lib/shopify';
+} from 'lib/data';
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';

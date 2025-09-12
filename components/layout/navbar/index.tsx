@@ -1,7 +1,7 @@
 import CartModal from "components/cart/modal";
 import LogoSquare from "components/logo-square";
 import { getMenu } from "lib/data";
-import { Menu } from "lib/shopify/types";
+import { MenuItem } from "lib/types";
 import Link from "next/link";
 import { Suspense } from "react";
 import MobileMenu from "./mobile-menu";
@@ -33,7 +33,7 @@ export async function Navbar() {
           </Link>
           {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
-              {menu.map((item: Menu) => (
+              {menu.map((item: MenuItem) => (
                 <li key={item.title}>
                   <Link
                     href={item.path}
