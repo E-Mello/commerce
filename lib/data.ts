@@ -1,6 +1,8 @@
 // Em lib/data.ts
 import { revalidateTag } from "next/cache";
-import { Cart, CartItem, Collection, Product } from "./types";
+import { NextRequest } from "next/dist/server/web/spec-extension/request";
+import { NextResponse } from "next/server";
+import { Cart, CartItem, Collection, Page, Product } from "./types";
 
 const API_URL = "http://localhost:4000";
 
@@ -174,4 +176,100 @@ export async function getCollectionProducts({
   }
 
   return filteredProducts;
+}
+
+// =======================================================================
+// NOVAS FUNÇÕES PARA O SITEMAP
+// =======================================================================
+
+export async function getCollections(): Promise<Collection[]> {
+  const res = await fetch(`${API_URL}/collections`, {
+    next: { tags: ["collections"] },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch collections.");
+  }
+
+  const collections: Collection[] = await res.json();
+
+  // O sitemap espera uma propriedade `path`, que não existe no nosso db.json.
+  // Vamos adicioná-la aqui, assim como a função antiga do Shopify fazia.
+  return collections.map((collection) => ({
+    ...collection,
+    path: `/search/${collection.handle}`,
+  }));
+}
+
+export async function getProducts(options: {
+  query?: string;
+  reverse?: boolean;
+  sortKey?: string;
+}): Promise<Product[]> {
+  // Por enquanto, esta função simplesmente busca todos os produtos.
+  // A lógica de query/sort pode ser adicionada depois se necessário.
+  const res = await fetch(`${API_URL}/products`, {
+    next: { tags: ["products"] },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch products.");
+  }
+
+  return res.json();
+}
+
+export async function getPages(): Promise<Page[]> {
+  const res = await fetch(`${API_URL}/pages`, {
+    next: { tags: ["pages"] },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch pages.");
+  }
+
+  return res.json();
+}
+
+export async function getPage(handle: string): Promise<Page | undefined> {
+  const res = await fetch(`${API_URL}/pages`, {
+    next: { tags: ["pages"] },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch pages.");
+  }
+
+  const pages: Page[] = await res.json();
+
+  // Encontra a página específica pelo seu "handle"
+  return pages.find((page) => page.handle === handle);
+}
+
+// Esta função é chamada pela Rota da API em 'app/api/revalidate/route.ts'
+export async function revalidate(req: NextRequest): Promise<NextResponse> {
+  // 1. Extrai os parâmetros da URL da requisição
+  const tag = req.nextUrl.searchParams.get("tag");
+  const secret = req.nextUrl.searchParams.get("secret");
+
+  // 2. Verifica se o segredo enviado corresponde ao que está no .env.local
+  // Isso protege o endpoint de ser acionado por qualquer pessoa.
+  if (secret !== process.env.REVALIDATION_SECRET) {
+    console.error("Invalid revalidation secret.");
+    return NextResponse.json({ error: "Invalid secret" }, { status: 401 });
+  }
+
+  // 3. Verifica se a tag que deve ser revalidada foi informada
+  if (!tag) {
+    return NextResponse.json(
+      { error: "Tag parameter is missing" },
+      { status: 400 }
+    );
+  }
+
+  // 4. Invalida o cache para a tag especificada (ex: 'products', 'collections')
+  revalidateTag(tag);
+
+  // 5. Retorna uma resposta de sucesso
+  return NextResponse.json({ revalidated: true, tag: tag, now: Date.now() });
 }

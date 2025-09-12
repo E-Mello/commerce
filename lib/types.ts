@@ -68,6 +68,7 @@ export type Collection = {
   description: string;
   seo: SEO;
   updatedAt: string;
+  path: string;
 };
 
 export type Page = {
