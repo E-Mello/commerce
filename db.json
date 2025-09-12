@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": "prod_1",
+      "handle": "classic-tee",
+      "title": "Camiseta Clássica",
+      "featuredImage": { "url": "/images/classic-tee.png" },
+      "price": { "amount": "75.00", "currencyCode": "BRL" },
+      "variants": [
+        {
+          "id": "var_1_s",
+          "title": "P",
+          "price": { "amount": "75.00", "currencyCode": "BRL" },
+          "selectedOptions": [{ "name": "Tamanho", "value": "P" }]
+        },
+        {
+          "id": "var_1_m",
+          "title": "M",
+          "price": { "amount": "75.00", "currencyCode": "BRL" },
+          "selectedOptions": [{ "name": "Tamanho", "value": "M" }]
+        }
+      ]
+    }
+  ],
+  "cart": {
+    "id": "cart_1",
+    "lines": [],
+    "totalQuantity": 0
+  }
+}
