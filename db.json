@@ -55,13 +55,13 @@
       ],
       "images": [
         {
-          "url": "/images/camiseta-preta-frente.png",
+          "url": "/img/camiseta-preta-frente.webp",
           "altText": "Frente da camiseta preta",
           "width": 800,
           "height": 800
         },
         {
-          "url": "/images/camiseta-preta-costas.png",
+          "url": "/img/camiseta-preta-frente.webp",
           "altText": "Costas da camiseta preta",
           "width": 800,
           "height": 800
@@ -117,6 +117,114 @@
       ],
       "images": [],
       "updatedAt": "2025-09-10T11:00:00Z"
+    },
+    {
+      "id": "prod_3",
+      "handle": "tenis-esportivo-branco",
+      "availableForSale": true,
+      "title": "Tênis Esportivo Branco",
+      "description": "Tênis esportivo branco leve e confortável, ideal para corridas e caminhadas.",
+      "descriptionHtml": "<p>Tênis esportivo branco leve e confortável, ideal para corridas e caminhadas.</p>",
+      "collections": ["hidden-homepage-featured-items"],
+      "tags": ["esporte", "conforto", "leve"],
+      "seo": {
+        "title": "Tênis Esportivo Branco | Sua Loja",
+        "description": "Tênis esportivo branco ideal para o dia a dia."
+      },
+      "featuredImage": {
+        "url": "/img/tenis-branco.webp",
+        "altText": "Tênis esportivo branco",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "249.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "249.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_3_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "249.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T10:00:00Z"
+    },
+    {
+      "id": "prod_4",
+      "handle": "bolsa-couro-marrom",
+      "availableForSale": true,
+      "title": "Bolsa de Couro Marrom",
+      "description": "Bolsa de couro legítimo marrom, elegante e espaçosa.",
+      "descriptionHtml": "<p>Bolsa de couro legítimo marrom, elegante e espaçosa.</p>",
+      "collections": ["hidden-homepage-featured-items"],
+      "tags": ["bolsa", "couro", "luxo"],
+      "seo": {
+        "title": "Bolsa de Couro Marrom | Sua Loja",
+        "description": "Bolsa de couro legítimo elegante."
+      },
+      "featuredImage": {
+        "url": "/img/bolsa-marrom.png",
+        "altText": "Bolsa de couro marrom",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "599.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "599.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_4_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "599.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T11:00:00Z"
+    },
+    {
+      "id": "prod_5",
+      "handle": "oculos-escuros-classico",
+      "availableForSale": true,
+      "title": "Óculos Escuros Clássico",
+      "description": "Óculos escuros preto clássico, com proteção UV.",
+      "descriptionHtml": "<p>Óculos escuros preto clássico, com proteção UV.</p>",
+      "collections": ["hidden-homepage-carousel"],
+      "tags": ["óculos", "verão", "acessório"],
+      "seo": {
+        "title": "Óculos Escuros Clássico | Sua Loja",
+        "description": "Óculos de sol preto clássico."
+      },
+      "featuredImage": {
+        "url": "/img/oculos-escuro.png",
+        "altText": "Óculos escuros preto clássico",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "149.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "149.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_5_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "149.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T12:00:00Z"
     }
   ],
   "collections": [
@@ -139,6 +247,26 @@
         "description": "Encontre camisetas de algodão com diversas estampas."
       },
       "updatedAt": "2025-09-11T15:30:00Z"
+    },
+    {
+      "handle": "hidden-homepage-featured-items",
+      "title": "Itens em Destaque (Homepage)",
+      "description": "Coleção especial para exibição no grid da homepage.",
+      "seo": {
+        "title": "Homepage Featured Items",
+        "description": "Produtos selecionados para a homepage."
+      },
+      "updatedAt": "2025-09-13T09:00:00Z"
+    },
+    {
+      "handle": "hidden-homepage-carousel",
+      "title": "Carrossel (Homepage)",
+      "description": "Produtos exibidos no carrossel da homepage.",
+      "seo": {
+        "title": "Homepage Carousel",
+        "description": "Produtos do carrossel inicial."
+      },
+      "updatedAt": "2025-09-13T09:30:00Z"
     }
   ],
   "pages": [
@@ -170,14 +298,8 @@
       "totalTaxAmount": { "amount": "0.00", "currencyCode": "BRL" }
     },
     "lines": [
-      {
-        "merchandiseId": "var_1_m",
-        "quantity": 1
-      },
-      {
-        "merchandiseId": "var_2_p",
-        "quantity": 1
-      }
+      { "merchandiseId": "var_1_m", "quantity": 1 },
+      { "merchandiseId": "var_2_p", "quantity": 1 }
     ],
     "totalQuantity": 2
   }
