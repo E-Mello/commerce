@@ -61,7 +61,7 @@
           "height": 800
         },
         {
-          "url": "/img/camiseta-preta-frente.webp",
+          "url": "/img/camiseta-preta-costas.webp",
           "altText": "Costas da camiseta preta",
           "width": 800,
           "height": 800
@@ -192,6 +192,42 @@
     },
     {
       "id": "prod_5",
+      "handle": "mochila-esportiva-preta",
+      "availableForSale": true,
+      "title": "Mochila Esportiva Preta",
+      "description": "Mochila preta resistente, com compartimento para notebook.",
+      "descriptionHtml": "<p>Mochila preta resistente, com compartimento para notebook.</p>",
+      "collections": ["hidden-homepage-featured-items"],
+      "tags": ["mochila", "esporte", "acessório"],
+      "seo": {
+        "title": "Mochila Esportiva Preta | Sua Loja",
+        "description": "Mochila preta com compartimento para notebook."
+      },
+      "featuredImage": {
+        "url": "/img/mochila-preta.png",
+        "altText": "Mochila esportiva preta",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "329.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "329.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_5_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "329.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T11:30:00Z"
+    },
+    {
+      "id": "prod_6",
       "handle": "oculos-escuros-classico",
       "availableForSale": true,
       "title": "Óculos Escuros Clássico",
@@ -216,7 +252,7 @@
       "options": [],
       "variants": [
         {
-          "id": "var_5_1",
+          "id": "var_6_1",
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
@@ -225,6 +261,114 @@
       ],
       "images": [],
       "updatedAt": "2025-09-13T12:00:00Z"
+    },
+    {
+      "id": "prod_7",
+      "handle": "bone-verde-logo",
+      "availableForSale": true,
+      "title": "Boné Verde Logo",
+      "description": "Boné verde bordado com logo minimalista.",
+      "descriptionHtml": "<p>Boné verde bordado com logo minimalista.</p>",
+      "collections": ["hidden-homepage-carousel"],
+      "tags": ["boné", "acessório"],
+      "seo": {
+        "title": "Boné Verde | Sua Loja",
+        "description": "Boné verde com logo minimalista."
+      },
+      "featuredImage": {
+        "url": "/img/bone-verde.png",
+        "altText": "Boné verde bordado",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "99.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "99.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_7_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "99.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T12:30:00Z"
+    },
+    {
+      "id": "prod_8",
+      "handle": "garrafa-termica-preta",
+      "availableForSale": true,
+      "title": "Garrafa Térmica Preta",
+      "description": "Garrafa térmica de aço inox, ideal para manter bebidas quentes ou frias.",
+      "descriptionHtml": "<p>Garrafa térmica de aço inox, ideal para manter bebidas quentes ou frias.</p>",
+      "collections": ["hidden-homepage-carousel"],
+      "tags": ["garrafa", "térmica", "acessório"],
+      "seo": {
+        "title": "Garrafa Térmica Preta | Sua Loja",
+        "description": "Garrafa térmica de aço inox preta."
+      },
+      "featuredImage": {
+        "url": "/img/garrafa-termica.webp",
+        "altText": "Garrafa térmica preta",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "189.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "189.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_8_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "189.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T12:40:00Z"
+    },
+    {
+      "id": "prod_9",
+      "handle": "relogio-digital-preto",
+      "availableForSale": true,
+      "title": "Relógio Digital Preto",
+      "description": "Relógio digital preto resistente à água.",
+      "descriptionHtml": "<p>Relógio digital preto resistente à água.</p>",
+      "collections": ["hidden-homepage-carousel"],
+      "tags": ["relógio", "digital"],
+      "seo": {
+        "title": "Relógio Digital Preto | Sua Loja",
+        "description": "Relógio digital preto esportivo."
+      },
+      "featuredImage": {
+        "url": "/img/relogio-preto.png",
+        "altText": "Relógio digital preto",
+        "width": 800,
+        "height": 800
+      },
+      "priceRange": {
+        "minVariantPrice": { "amount": "299.90", "currencyCode": "BRL" },
+        "maxVariantPrice": { "amount": "299.90", "currencyCode": "BRL" }
+      },
+      "options": [],
+      "variants": [
+        {
+          "id": "var_9_1",
+          "title": "Default",
+          "availableForSale": true,
+          "selectedOptions": [],
+          "price": { "amount": "299.90", "currencyCode": "BRL" }
+        }
+      ],
+      "images": [],
+      "updatedAt": "2025-09-13T12:50:00Z"
     }
   ],
   "collections": [
