@@ -1,3 +1,5 @@
+// Path: components/carousel.tsx
+
 import { getCollectionProducts } from 'lib/data';
 import Link from 'next/link';
 import { GridTileImage } from './grid/tile';

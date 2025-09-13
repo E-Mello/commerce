@@ -14,7 +14,7 @@
         "description": "Compre a melhor camiseta preta básica de algodão."
       },
       "featuredImage": {
-        "url": "/images/camiseta-preta-frente.png",
+        "url": "/img/camiseta-preta-frente.webp",
         "altText": "Frente da camiseta preta",
         "width": 800,
         "height": 800
@@ -83,7 +83,7 @@
         "description": "O melhor moletom cinza com capuz para o inverno."
       },
       "featuredImage": {
-        "url": "/images/moletom-cinza-frente.png",
+        "url": "/img/moletom-cinza-frente.webp",
         "altText": "Frente do moletom cinza",
         "width": 800,
         "height": 800

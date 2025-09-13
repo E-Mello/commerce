@@ -1,3 +1,5 @@
+// Path: components/layout/footer.tsx
+
 import Link from 'next/link';
 
 import FooterMenu from 'components/layout/footer-menu';

@@ -1,3 +1,5 @@
+// Path: components/grid/three-items.tsx
+
 import { GridTileImage } from "components/grid/tile";
 import { getCollectionProducts } from "lib/data";
 import type { Product } from "lib/types";
