@@ -637,7 +637,12 @@
         "currencyCode": "BRL"
       }
     },
-    "lines": [],
-    "totalQuantity": 0
+    "lines": [
+      {
+        "merchandiseId": "var_6_1",
+        "quantity": 2
+      }
+    ],
+    "totalQuantity": 1
   }
 }

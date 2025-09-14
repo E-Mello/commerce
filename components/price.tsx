@@ -1,3 +1,5 @@
+// Path: components/price.tsx
+
 import clsx from 'clsx';
 
 const Price = ({

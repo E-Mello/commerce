@@ -1,3 +1,5 @@
+// Path: components/grid/index.tsx
+
 import clsx from 'clsx';
 
 function Grid(props: React.ComponentProps<'ul'>) {
