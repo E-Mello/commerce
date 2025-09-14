@@ -641,8 +641,12 @@
       {
         "merchandiseId": "var_6_1",
         "quantity": 2
+      },
+      {
+        "merchandiseId": "var_3_1",
+        "quantity": 4
       }
     ],
-    "totalQuantity": 1
+    "totalQuantity": 5
   }
 }

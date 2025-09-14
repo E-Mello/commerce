@@ -17,7 +17,6 @@ const Label = ({
   return (
     <div
       className={clsx(
-        // não intercepta clique no card
         "pointer-events-none absolute left-0 flex w-full px-4 pb-4 @container/label",
         {
           "bottom-0": position === "bottom",
@@ -28,22 +27,20 @@ const Label = ({
     >
       <div
         className={[
-          // pill translúcido com contorno e blur (estilo demo)
-          "pointer-events-none flex max-w-full items-center gap-2",
-          "rounded-full border border-neutral-200/70 bg-white/70",
-          "px-2 py-1 text-xs font-semibold text-black",
-          "backdrop-blur-md",
+          "pointer-events-none flex max-w-full items-center gap-3",
+          "rounded-2xl border border-white/50 bg-white/95",
+          "px-4 py-3 text-xs font-semibold text-black",
+          "backdrop-blur-xl backdrop-saturate-150",
           "ring-1 ring-black/10",
-          "shadow-[0_1px_1px_rgba(255,255,255,0.35)_inset,0_8px_20px_rgba(0,0,0,0.35)]",
-          "dark:border-neutral-700/80 dark:bg-black/60 dark:text-white dark:ring-white/10",
+          "shadow-[0_12px_40px_rgba(0,0,0,0.25),0_4px_12px_rgba(0,0,0,0.15)]",
+          "dark:border-white/40 dark:bg-black/90 dark:text-white dark:ring-white/20",
+          "transition-all duration-300 ease-out",
         ].join(" ")}
       >
         <h3
           className={[
-            // título com boa leitura e sem quebrar feio
-            "truncate pl-2 text-sm leading-tight",
-            // leve “contorno” no texto pra destacar sobre a imagem
-            "[text-shadow:0_1px_1px_rgba(0,0,0,0.35)]",
+            "truncate pl-1 text-sm leading-tight font-medium",
+            "[text-shadow:0_2px_4px_rgba(0,0,0,0.2)]",
           ].join(" ")}
           title={title}
         >
@@ -52,14 +49,14 @@ const Label = ({
 
         <Price
           className={[
-            // pill azul do preço com contorno e brilho interno
-            "flex-none rounded-full bg-blue-600 px-3 py-1 text-sm text-white",
-            "ring-1 ring-blue-300/50",
-            "shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_4px_12px_rgba(0,0,0,0.35)]",
+            "flex-none rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2 text-sm text-white font-bold",
+            "ring-2 ring-blue-400/50",
+            "shadow-[0_6px_20px_rgba(59,130,246,0.4),0_2px_0_rgba(255,255,255,0.2)_inset]",
+            "transition-all duration-200 hover:shadow-[0_8px_24px_rgba(59,130,246,0.5)]",
           ].join(" ")}
           amount={amount}
           currencyCode={currencyCode}
-          currencyCodeClassName="hidden @[275px]/label:inline"
+          currencyCodeClassName="hidden @[275px]/label:inline text-blue-100"
         />
       </div>
     </div>

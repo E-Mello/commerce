@@ -1,5 +1,6 @@
 // Path: components/grid/three-items.tsx
 
+import clsx from "clsx"; // declared the clsx variable
 import { GridTileImage } from "components/grid/tile";
 import { getCollectionProducts } from "lib/data";
 import type { Product } from "lib/types";
@@ -16,14 +17,19 @@ function ThreeItemGridItem({
 }) {
   return (
     <div
-      className={
+      className={clsx(
+        "group", // added group class for hover effects
         size === "full"
           ? "md:col-span-4 md:row-span-2"
           : "md:col-span-2 md:row-span-1"
-      }
+      )}
     >
       <Link
-        className="relative block aspect-square h-full w-full"
+        className={[
+          "relative block aspect-square h-full w-full",
+          "transition-transform duration-300 ease-out", // smooth transitions
+          "hover:scale-[1.02] focus:scale-[1.02]", // subtle hover effect
+        ].join(" ")}
         href={`/product/${item.handle}`}
         prefetch={true}
       >
@@ -60,7 +66,25 @@ export async function ThreeItemGrid() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <section className="mx-auto grid max-w-(--breakpoint-2xl) gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]">
+    <section
+      className={[
+        "mx-auto grid max-w-7xl gap-6 px-6 pb-8 pt-4", // increased gaps and padding, better max-width
+        "md:grid-cols-6 md:grid-rows-2",
+        "lg:max-h-[calc(100vh-200px)]",
+        "animate-in fade-in duration-700", // added entrance animation
+      ].join(" ")}
+    >
+      <div className="md:col-span-6 mb-4">
+        {" "}
+        {/* added section header */}
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+          Coleção Especial
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 text-lg">
+          Produtos selecionados especialmente para você
+        </p>
+      </div>
+
       <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
       <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
       <ThreeItemGridItem size="half" item={thirdProduct} />
