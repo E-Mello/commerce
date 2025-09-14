@@ -7,8 +7,15 @@
       "title": "Camiseta Clássica Preta",
       "description": "Uma camiseta preta essencial, feita de 100% algodão premium. Confortável, durável e versátil para qualquer ocasião.",
       "descriptionHtml": "<p>Uma camiseta preta essencial, feita de <strong>100% algodão premium</strong>. Confortável, durável e versátil para qualquer ocasião.</p>",
-      "collections": ["destaques", "camisetas"],
-      "tags": ["básico", "algodão", "verão"],
+      "collections": [
+        "destaques",
+        "camisetas"
+      ],
+      "tags": [
+        "básico",
+        "algodão",
+        "verão"
+      ],
       "seo": {
         "title": "Camiseta Clássica Preta | Sua Loja",
         "description": "Compre a melhor camiseta preta básica de algodão."
@@ -20,14 +27,25 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "89.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "89.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "89.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "89.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [
         {
           "id": "option_size",
           "name": "Tamanho",
-          "values": ["P", "M", "G", "GG"]
+          "values": [
+            "P",
+            "M",
+            "G",
+            "GG"
+          ]
         }
       ],
       "variants": [
@@ -35,22 +53,46 @@
           "id": "var_1_p",
           "title": "P",
           "availableForSale": true,
-          "selectedOptions": [{ "name": "Tamanho", "value": "P" }],
-          "price": { "amount": "89.90", "currencyCode": "BRL" }
+          "selectedOptions": [
+            {
+              "name": "Tamanho",
+              "value": "P"
+            }
+          ],
+          "price": {
+            "amount": "89.90",
+            "currencyCode": "BRL"
+          }
         },
         {
           "id": "var_1_m",
           "title": "M",
           "availableForSale": true,
-          "selectedOptions": [{ "name": "Tamanho", "value": "M" }],
-          "price": { "amount": "89.90", "currencyCode": "BRL" }
+          "selectedOptions": [
+            {
+              "name": "Tamanho",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "amount": "89.90",
+            "currencyCode": "BRL"
+          }
         },
         {
           "id": "var_1_g",
           "title": "G",
           "availableForSale": false,
-          "selectedOptions": [{ "name": "Tamanho", "value": "G" }],
-          "price": { "amount": "89.90", "currencyCode": "BRL" }
+          "selectedOptions": [
+            {
+              "name": "Tamanho",
+              "value": "G"
+            }
+          ],
+          "price": {
+            "amount": "89.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [
@@ -76,8 +118,15 @@
       "title": "Moletom com Capuz Cinza",
       "description": "Moletom cinza mescla com capuz e bolso canguru. Perfeito para dias mais frios, combinando estilo e conforto.",
       "descriptionHtml": "<p>Moletom cinza mescla com capuz e bolso canguru. Perfeito para dias mais frios, combinando <strong>estilo e conforto</strong>.</p>",
-      "collections": ["destaques", "casacos"],
-      "tags": ["inverno", "conforto", "moletom"],
+      "collections": [
+        "destaques",
+        "casacos"
+      ],
+      "tags": [
+        "inverno",
+        "conforto",
+        "moletom"
+      ],
       "seo": {
         "title": "Moletom com Capuz Cinza | Sua Loja",
         "description": "O melhor moletom cinza com capuz para o inverno."
@@ -89,14 +138,24 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "199.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "199.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "199.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "199.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [
         {
           "id": "option_size",
           "name": "Tamanho",
-          "values": ["P", "M", "G"]
+          "values": [
+            "P",
+            "M",
+            "G"
+          ]
         }
       ],
       "variants": [
@@ -104,15 +163,31 @@
           "id": "var_2_p",
           "title": "P",
           "availableForSale": true,
-          "selectedOptions": [{ "name": "Tamanho", "value": "P" }],
-          "price": { "amount": "199.90", "currencyCode": "BRL" }
+          "selectedOptions": [
+            {
+              "name": "Tamanho",
+              "value": "P"
+            }
+          ],
+          "price": {
+            "amount": "199.90",
+            "currencyCode": "BRL"
+          }
         },
         {
           "id": "var_2_m",
           "title": "M",
           "availableForSale": true,
-          "selectedOptions": [{ "name": "Tamanho", "value": "M" }],
-          "price": { "amount": "199.90", "currencyCode": "BRL" }
+          "selectedOptions": [
+            {
+              "name": "Tamanho",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "amount": "199.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -125,8 +200,14 @@
       "title": "Tênis Esportivo Branco",
       "description": "Tênis esportivo branco leve e confortável, ideal para corridas e caminhadas.",
       "descriptionHtml": "<p>Tênis esportivo branco leve e confortável, ideal para corridas e caminhadas.</p>",
-      "collections": ["hidden-homepage-featured-items"],
-      "tags": ["esporte", "conforto", "leve"],
+      "collections": [
+        "hidden-homepage-featured-items"
+      ],
+      "tags": [
+        "esporte",
+        "conforto",
+        "leve"
+      ],
       "seo": {
         "title": "Tênis Esportivo Branco | Sua Loja",
         "description": "Tênis esportivo branco ideal para o dia a dia."
@@ -138,8 +219,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "249.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "249.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "249.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "249.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -148,7 +235,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "249.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "249.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -161,8 +251,14 @@
       "title": "Bolsa de Couro Marrom",
       "description": "Bolsa de couro legítimo marrom, elegante e espaçosa.",
       "descriptionHtml": "<p>Bolsa de couro legítimo marrom, elegante e espaçosa.</p>",
-      "collections": ["hidden-homepage-featured-items"],
-      "tags": ["bolsa", "couro", "luxo"],
+      "collections": [
+        "hidden-homepage-featured-items"
+      ],
+      "tags": [
+        "bolsa",
+        "couro",
+        "luxo"
+      ],
       "seo": {
         "title": "Bolsa de Couro Marrom | Sua Loja",
         "description": "Bolsa de couro legítimo elegante."
@@ -174,8 +270,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "599.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "599.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "599.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "599.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -184,7 +286,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "599.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "599.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -197,8 +302,14 @@
       "title": "Mochila Esportiva Preta",
       "description": "Mochila preta resistente, com compartimento para notebook.",
       "descriptionHtml": "<p>Mochila preta resistente, com compartimento para notebook.</p>",
-      "collections": ["hidden-homepage-featured-items"],
-      "tags": ["mochila", "esporte", "acessório"],
+      "collections": [
+        "hidden-homepage-featured-items"
+      ],
+      "tags": [
+        "mochila",
+        "esporte",
+        "acessório"
+      ],
       "seo": {
         "title": "Mochila Esportiva Preta | Sua Loja",
         "description": "Mochila preta com compartimento para notebook."
@@ -210,8 +321,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "329.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "329.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "329.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "329.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -220,7 +337,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "329.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "329.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -233,8 +353,14 @@
       "title": "Óculos Escuros Clássico",
       "description": "Óculos escuros preto clássico, com proteção UV.",
       "descriptionHtml": "<p>Óculos escuros preto clássico, com proteção UV.</p>",
-      "collections": ["hidden-homepage-carousel"],
-      "tags": ["óculos", "verão", "acessório"],
+      "collections": [
+        "hidden-homepage-carousel"
+      ],
+      "tags": [
+        "óculos",
+        "verão",
+        "acessório"
+      ],
       "seo": {
         "title": "Óculos Escuros Clássico | Sua Loja",
         "description": "Óculos de sol preto clássico."
@@ -246,8 +372,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "149.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "149.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "149.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "149.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -256,7 +388,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "149.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "149.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -269,8 +404,13 @@
       "title": "Boné Verde Logo",
       "description": "Boné verde bordado com logo minimalista.",
       "descriptionHtml": "<p>Boné verde bordado com logo minimalista.</p>",
-      "collections": ["hidden-homepage-carousel"],
-      "tags": ["boné", "acessório"],
+      "collections": [
+        "hidden-homepage-carousel"
+      ],
+      "tags": [
+        "boné",
+        "acessório"
+      ],
       "seo": {
         "title": "Boné Verde | Sua Loja",
         "description": "Boné verde com logo minimalista."
@@ -282,8 +422,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "99.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "99.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "99.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "99.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -292,7 +438,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "99.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "99.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -305,8 +454,14 @@
       "title": "Garrafa Térmica Preta",
       "description": "Garrafa térmica de aço inox, ideal para manter bebidas quentes ou frias.",
       "descriptionHtml": "<p>Garrafa térmica de aço inox, ideal para manter bebidas quentes ou frias.</p>",
-      "collections": ["hidden-homepage-carousel"],
-      "tags": ["garrafa", "térmica", "acessório"],
+      "collections": [
+        "hidden-homepage-carousel"
+      ],
+      "tags": [
+        "garrafa",
+        "térmica",
+        "acessório"
+      ],
       "seo": {
         "title": "Garrafa Térmica Preta | Sua Loja",
         "description": "Garrafa térmica de aço inox preta."
@@ -318,8 +473,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "189.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "189.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "189.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "189.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -328,7 +489,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "189.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "189.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -341,8 +505,13 @@
       "title": "Relógio Digital Preto",
       "description": "Relógio digital preto resistente à água.",
       "descriptionHtml": "<p>Relógio digital preto resistente à água.</p>",
-      "collections": ["hidden-homepage-carousel"],
-      "tags": ["relógio", "digital"],
+      "collections": [
+        "hidden-homepage-carousel"
+      ],
+      "tags": [
+        "relógio",
+        "digital"
+      ],
       "seo": {
         "title": "Relógio Digital Preto | Sua Loja",
         "description": "Relógio digital preto esportivo."
@@ -354,8 +523,14 @@
         "height": 800
       },
       "priceRange": {
-        "minVariantPrice": { "amount": "299.90", "currencyCode": "BRL" },
-        "maxVariantPrice": { "amount": "299.90", "currencyCode": "BRL" }
+        "minVariantPrice": {
+          "amount": "299.90",
+          "currencyCode": "BRL"
+        },
+        "maxVariantPrice": {
+          "amount": "299.90",
+          "currencyCode": "BRL"
+        }
       },
       "options": [],
       "variants": [
@@ -364,7 +539,10 @@
           "title": "Default",
           "availableForSale": true,
           "selectedOptions": [],
-          "price": { "amount": "299.90", "currencyCode": "BRL" }
+          "price": {
+            "amount": "299.90",
+            "currencyCode": "BRL"
+          }
         }
       ],
       "images": [],
@@ -429,22 +607,37 @@
     }
   ],
   "menu": [
-    { "title": "Todos os Produtos", "path": "/search" },
-    { "title": "Camisetas", "path": "/search/camisetas" },
-    { "title": "Sobre Nós", "path": "/about" }
+    {
+      "title": "Todos os Produtos",
+      "path": "/search"
+    },
+    {
+      "title": "Camisetas",
+      "path": "/search/camisetas"
+    },
+    {
+      "title": "Sobre Nós",
+      "path": "/about"
+    }
   ],
   "cart": {
     "id": "cart_abc123",
     "checkoutUrl": "/checkout",
     "cost": {
-      "subtotalAmount": { "amount": "289.80", "currencyCode": "BRL" },
-      "totalAmount": { "amount": "289.80", "currencyCode": "BRL" },
-      "totalTaxAmount": { "amount": "0.00", "currencyCode": "BRL" }
+      "subtotalAmount": {
+        "amount": "289.80",
+        "currencyCode": "BRL"
+      },
+      "totalAmount": {
+        "amount": "289.80",
+        "currencyCode": "BRL"
+      },
+      "totalTaxAmount": {
+        "amount": "0.00",
+        "currencyCode": "BRL"
+      }
     },
-    "lines": [
-      { "merchandiseId": "var_1_m", "quantity": 1 },
-      { "merchandiseId": "var_2_p", "quantity": 1 }
-    ],
-    "totalQuantity": 2
+    "lines": [],
+    "totalQuantity": 0
   }
 }
