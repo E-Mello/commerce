@@ -1,3 +1,5 @@
+// Path: components/layout/navbar/search.tsx
+
 'use client';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';

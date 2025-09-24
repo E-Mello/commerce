@@ -1,3 +1,5 @@
+// Path: components/layout/search/filter/dropdown.tsx
+
 'use client';
 
 import { usePathname, useSearchParams } from 'next/navigation';

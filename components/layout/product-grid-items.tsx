@@ -1,3 +1,5 @@
+// Path: components/layout/product-grid-items.tsx
+
 import Grid from "components/grid";
 import { GridTileImage } from "components/grid/tile";
 import { Product } from "lib/types";

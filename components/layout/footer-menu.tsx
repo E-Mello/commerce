@@ -1,3 +1,5 @@
+// Path: components/layout/footer-menu.tsx
+
 "use client";
 
 import clsx from "clsx";

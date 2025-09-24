@@ -1,3 +1,5 @@
+// Path: components/layout/navbar/index.tsx
+
 import CartModal from "components/cart/modal";
 import LogoSquare from "components/logo-square";
 import { getMenu } from "lib/data";

@@ -1,3 +1,5 @@
+// Path: components/layout/navbar/mobile-menu.tsx
+
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";

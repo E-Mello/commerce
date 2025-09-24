@@ -1,3 +1,5 @@
+// Path: components/layout/search/filter/item.tsx
+
 'use client';
 
 import clsx from 'clsx';

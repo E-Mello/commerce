@@ -1,3 +1,5 @@
+// Path: components/layout/search/filter/index.tsx
+
 import { SortFilterItem } from 'lib/constants';
 import { Suspense } from 'react';
 import FilterItemDropdown from './dropdown';

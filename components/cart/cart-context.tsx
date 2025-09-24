@@ -1,3 +1,5 @@
+// Path: components/cart/cart-context.tsx
+
 "use client";
 
 // 1. Importa os novos tipos e as Server Actions
